@@ -5,3 +5,11 @@
 .is_mobile {
   margin-top: 1rem;
 }
+
+.detail {
+  margin-top: 1rem;
+  padding-inline-start: 0.5rem;
+  padding-inline-end: 0.5rem;
+  text-wrap: wrap;
+  text-align: left;
+}

@@ -1,14 +1,44 @@
+diff --git a/node_modules/is-mobile/index.d.ts b/node_modules/is-mobile/index.d.ts
+index b42ba60..2cddad0 100644
+--- a/node_modules/is-mobile/index.d.ts
++++ b/node_modules/is-mobile/index.d.ts
+@@ -14,6 +14,11 @@ export interface IsMobileOptions
+     tablet?: boolean
+     featureDetect?: boolean
+ }
++export interface isMobileResult
++{
++    result: boolean
++    detail: any
++}
+ 
+-export declare function isMobile(opts?:IsMobileOptions): boolean;
++export declare function isMobile(opts?:IsMobileOptions): isMobileResult;
+ export default isMobile;
 diff --git a/node_modules/is-mobile/index.js b/node_modules/is-mobile/index.js
-index 68646ff..720cbfd 100644
+index 68646ff..8d0c5d4 100644
 --- a/node_modules/is-mobile/index.js
 +++ b/node_modules/is-mobile/index.js
-@@ -22,6 +22,9 @@ function isMobile (opts) {
+@@ -22,6 +22,15 @@ function isMobile (opts) {
      (mobileRE.test(ua) && !notMobileRE.test(ua)) ||
      (!!opts.tablet && tabletRE.test(ua))
  
-+  console.log("is-mobile result: ", result, "ua: ", ua, "opts: ", opts)
-+  console.log("navigator.maxTouchPoints: ", navigator.maxTouchPoints, "mac: ", ua.indexOf('Macintosh'), "safari: ", ua.indexOf('Safari'))
++  const detail = {
++    interimResult: result,
++    ua: ua,
++    opts: opts,
++    maxTouchPoints: navigator.maxTouchPoints,
++    mac: ua.indexOf('Macintosh'),
++    safari: ua.indexOf('Safari')
++  }
 +
    if (
      !result &&
      opts.tablet &&
+@@ -34,5 +43,5 @@ function isMobile (opts) {
+     result = true
+   }
+ 
+-  return result
++  return { result, detail }
+ }
