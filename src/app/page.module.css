@@ -10,6 +10,6 @@
   margin-top: 1rem;
   padding-inline-start: 0.5rem;
   padding-inline-end: 0.5rem;
-  text-wrap: wrap;
+  white-space: pre-wrap;
   text-align: left;
 }
