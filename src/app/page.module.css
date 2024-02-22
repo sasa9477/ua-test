@@ -2,8 +2,19 @@
   text-align: center;
 }
 
-.is_mobile {
+.title {
+  font-size: 2rem;
   margin-top: 1rem;
+}
+
+.sub_title {
+  font-size: 1.75rem;
+  margin-top: 1rem;
+}
+
+.is_mobile {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .detail {
@@ -12,4 +23,5 @@
   padding-inline-end: 0.5rem;
   white-space: pre-wrap;
   text-align: left;
+  font-size: 1.5rem;
 }
