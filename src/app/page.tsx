@@ -14,7 +14,12 @@ export default function Home() {
   }, [setIsMobile]);
 
   useEffect(() => {
-    setIsMobileResult(isMobileModule());
+    setIsMobileResult(
+      isMobileModule({
+        tablet: true,
+        featureDetect: true,
+      })
+    );
   }, [setIsMobileResult]);
 
   return (
